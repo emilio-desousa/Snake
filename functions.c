@@ -5,24 +5,41 @@
 
 void setArray(int g[42][62])
 {
-	int i, j;
-    for (i = 0; i < 42; ++i)
+	int column;
+    int line;
+    int nbrPomme;
+    int nbrPommeMax;
+    nbrPommeMax = 5;
+    nbrPomme = 0;
+    for (line = 0; line < 42; line++)
     {
-        for (j = 0; j < 62; ++j)
+        for (column = 0; column < 62; ++column)
         {
-            if ( (i == 0) || (i == 41) || (j == 0) || (j == 61) )
+            if ( (line == 0) || (line == 41) || (column == 0) || (column== 61) )
             {
-                g[i][j] = 2;
+                g[line][column] = 2;
             } else 
             {
-                if ((i == 21) && (j > 25 && j < 36) )
+                if ((line == 21) && (column > 25 && column < 36) )
                 {
-                    g[i][j] = 1; 
+                    g[line][column] = 1;
+                    printf("snake %d => grille[%d][%d]\n", column - 25, line, column);
                 } else 
                 {
-                  g[i][j] = 0;  
+                    g[line][column] = 0;  
                 }
             }
+        }
+    }
+    srand(time(NULL));
+    while (nbrPomme != nbrPommeMax) {
+        line = (rand() % (41 - 1 + 1)) + 1;
+        column = (rand() % (61 - 1 + 1)) + 1;
+        if (g[line][column] == 0)
+        {
+            g[line][column] = 3;
+            printf("pomme %d => grille[%d][%d]\n", nbrPomme, line, column);
+            nbrPomme++;   
         }
     }
 }

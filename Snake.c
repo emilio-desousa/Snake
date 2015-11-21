@@ -13,7 +13,7 @@ int	main(int argc, char *argv[])
     {
         for (j = 0; j < 62; ++j)
         {
-        	printf("grille[%d][%d] => %d\n", i, j, grille[i][j]);
+        	//printf("grille[%d][%d] => %d\n", i, j, grille[i][j]);
         }
     }
 	return EXIT_SUCCESS;
