@@ -15,7 +15,13 @@ void setArray(int g[42][62])
                 g[i][j] = 2;
             } else 
             {
-                g[i][j] = 0;
+                if ((i == 21) && (j > 25 && j < 36) )
+                {
+                    g[i][j] = 1; 
+                } else 
+                {
+                  g[i][j] = 0;  
+                }
             }
         }
     }
