@@ -13,9 +13,12 @@ void setObstacle (int **grille, int line, int column)
 
 void setSnake (int **grille, int line, int column)
 {
-    if ( (line == 21) && (column > 25 && column < 36) )
+    if ((line==21) && (column==35))
     {
-        grille[line][column] = 1;
+        grille[line][column] = 4;
+    }else if ( (line == 21) && (column > 25 && column < 35) )
+    {
+        grille[line][column] = 12;
     }
 }
 
