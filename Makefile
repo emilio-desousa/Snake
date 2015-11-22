@@ -3,13 +3,18 @@ all: proper Snake
 build: proper Snake
 	rm -rf *.o
 
-Snake: Snake.o functions.o
-	gcc -o Snake Snake.o functions.o -lgraph
+bl: build launch
+
+Snake: Snake.o functions.o window.o
+	gcc -o Snake Snake.o functions.o window.o -lgraph
 
 functions.o: functions.c functions.h
 	gcc -c functions.c -lgraph
 
-Snake.o: Snake.c functions.h
+window.o: window.c window.h
+	gcc -c window.c -lgraph
+
+Snake.o: Snake.c functions.h window.h
 	gcc -c Snake.c -lgraph
 
 clean: 
@@ -17,5 +22,8 @@ clean:
 
 proper: clean
 	rm -rf Snake
+
+launch: 
+	./Snake
 
 .PHONY: clean

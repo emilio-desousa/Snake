@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <graph.h>
 #include "functions.h"
+#include "window.h"
 
 int	main(int argc, char *argv[]) 
 {
@@ -9,7 +10,8 @@ int	main(int argc, char *argv[])
 	int column;
 	int line;
     int nbrCells = 0;
-    grille = setArray(grille);
+    grille = setArray();
+    setWindow(grille);
     for (line = 0; line < 42; line++)
     {
         for (column = 0; column < 62; column++)
@@ -24,5 +26,6 @@ int	main(int argc, char *argv[])
             }
         }
     }
+
 	return EXIT_SUCCESS;
 }
